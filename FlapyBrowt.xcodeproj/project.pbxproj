@@ -16,6 +16,8 @@
 		EF2674992F7198650012916E /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2674982F7198650012916E /* Sprite.swift */; };
 		EF2674A02F719CCC0012916E /* PIPEPAIR.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26749F2F719CCC0012916E /* PIPEPAIR.swift */; };
 		EF2674A42F719EB60012916E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2674A32F719EB60012916E /* GameScene.swift */; };
+		EF349D5A2F89140200AD8999 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF349D592F89140200AD8999 /* Physics.swift */; };
+		EF349D5D2F89179D00AD8999 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF349D5C2F89179D00AD8999 /* GameOver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		EF2674982F7198650012916E /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		EF26749F2F719CCC0012916E /* PIPEPAIR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIPEPAIR.swift; sourceTree = "<group>"; };
 		EF2674A32F719EB60012916E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		EF349D592F89140200AD8999 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
+		EF349D5C2F89179D00AD8999 /* GameOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				EF2674982F7198650012916E /* Sprite.swift */,
 				EF26749F2F719CCC0012916E /* PIPEPAIR.swift */,
 				EF2674A32F719EB60012916E /* GameScene.swift */,
+				EF349D592F89140200AD8999 /* Physics.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				EF26747D2F7193510012916E /* ContentView.swift */,
+				EF349D5C2F89179D00AD8999 /* GameOver.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -180,6 +186,8 @@
 				EF2674932F7194D80012916E /* Browt.swift in Sources */,
 				EF26747E2F7193510012916E /* ContentView.swift in Sources */,
 				EF2674A02F719CCC0012916E /* PIPEPAIR.swift in Sources */,
+				EF349D5D2F89179D00AD8999 /* GameOver.swift in Sources */,
+				EF349D5A2F89140200AD8999 /* Physics.swift in Sources */,
 				EF26748F2F7194B70012916E /* ViewModel.swift in Sources */,
 				EF2674992F7198650012916E /* Sprite.swift in Sources */,
 				EF2674A42F719EB60012916E /* GameScene.swift in Sources */,

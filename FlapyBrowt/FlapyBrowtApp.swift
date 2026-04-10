@@ -1,18 +1,13 @@
-//
-//  FlapyBrowtApp.swift
-//  FlapyBrowt
-//
-//  Created by alumne on 23/03/2026.
-//
-
 import SwiftUI
 
 @main
 struct FlapyBrowtApp: App {
     @StateObject var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(viewModel)
+            ContentView()
+                .environmentObject(viewModel)
         }
     }
 }
