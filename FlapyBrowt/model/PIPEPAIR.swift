@@ -37,7 +37,7 @@ class PipePair: SKNode {
         scoreNode.physicsBody?.contactTestBitMask = PhysicsCategory.bird
         self.addChild(scoreNode)
         
-        // MOVIMIENTO: Calculamos la distancia para que salga totalmente
+        // Calculamos la distancia para que salga totalmente
         let startX = screenWidth + pipeWidth
         let endX = -(pipeWidth + 50)
         let moveDistance = startX + abs(endX)

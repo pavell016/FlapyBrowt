@@ -12,7 +12,6 @@
 		EF2674802F7193540012916E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF26747F2F7193540012916E /* Assets.xcassets */; };
 		EF2674832F7193540012916E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF2674822F7193540012916E /* Preview Assets.xcassets */; };
 		EF26748F2F7194B70012916E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26748E2F7194B70012916E /* ViewModel.swift */; };
-		EF2674932F7194D80012916E /* Browt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2674922F7194D80012916E /* Browt.swift */; };
 		EF2674992F7198650012916E /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2674982F7198650012916E /* Sprite.swift */; };
 		EF2674A02F719CCC0012916E /* PIPEPAIR.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF26749F2F719CCC0012916E /* PIPEPAIR.swift */; };
 		EF2674A42F719EB60012916E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2674A32F719EB60012916E /* GameScene.swift */; };
@@ -28,7 +27,6 @@
 		EF2674822F7193540012916E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF2674842F7193540012916E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF26748E2F7194B70012916E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		EF2674922F7194D80012916E /* Browt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browt.swift; sourceTree = "<group>"; };
 		EF2674982F7198650012916E /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		EF26749F2F719CCC0012916E /* PIPEPAIR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIPEPAIR.swift; sourceTree = "<group>"; };
 		EF2674A32F719EB60012916E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		EF26748B2F71935D0012916E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				EF2674922F7194D80012916E /* Browt.swift */,
 				EF2674982F7198650012916E /* Sprite.swift */,
 				EF26749F2F719CCC0012916E /* PIPEPAIR.swift */,
 				EF2674A32F719EB60012916E /* GameScene.swift */,
@@ -183,7 +180,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF2674932F7194D80012916E /* Browt.swift in Sources */,
 				EF26747E2F7193510012916E /* ContentView.swift in Sources */,
 				EF2674A02F719CCC0012916E /* PIPEPAIR.swift in Sources */,
 				EF349D5D2F89179D00AD8999 /* GameOver.swift in Sources */,

@@ -3,36 +3,61 @@ import SwiftUI
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var vm: ViewModel?
-    var bird = SKShapeNode(circleOfRadius: 18)
+    var bird = SKNode()
+    let birdRadius: CGFloat = 18.0
+    private var lastJumpTime: TimeInterval = 0
+    
+    func cleanScene() {
+        self.removeAllActions()
+        self.removeAllChildren()
+        self.physicsWorld.contactDelegate = nil
+    }
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .cyan
-        physicsWorld.gravity = CGVector(dx: 0, dy: -8.5)
+        // Usar gravedad del VM
+        physicsWorld.gravity = CGVector(dx: 0, dy: vm?.gravity ?? -8.5)
         physicsWorld.contactDelegate = self
         setupBird()
         startSpawningPipes()
     }
     
     func setupBird() {
-        bird.fillColor = .yellow
-        bird.strokeColor = .black
-        bird.position = CGPoint(x: self.size.width * 0.2, y: self.size.height / 2)
+        let radius: CGFloat = 18.0
+        let birdSize = CGSize(width: radius * 2, height: radius * 2)
         
-        bird.physicsBody = SKPhysicsBody(circleOfRadius: 18)
+        let birdImage = SKSpriteNode(imageNamed: "browt")
+        birdImage.size = birdSize
+        
+        let mask = SKShapeNode(circleOfRadius: radius)
+        mask.fillColor = .white
+        
+        let cropNode = SKCropNode()
+        cropNode.maskNode = mask
+        cropNode.addChild(birdImage)
+        
+        bird.removeAllChildren()
+        bird.addChild(cropNode)
+        bird.position = CGPoint(x: self.size.width * 0.2, y: self.size.height / 2)
+        bird.zPosition = 10
+        
+        bird.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         bird.physicsBody?.categoryBitMask = PhysicsCategory.bird
         bird.physicsBody?.contactTestBitMask = PhysicsCategory.pipe | PhysicsCategory.score
-        bird.physicsBody?.collisionBitMask = PhysicsCategory.pipe // Rebota en tuberías
+        bird.physicsBody?.collisionBitMask = PhysicsCategory.pipe
         bird.physicsBody?.allowsRotation = false
         
-        self.addChild(bird)
+        if bird.parent == nil {
+            self.addChild(bird)
+        }
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
-        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        guard let vm = vm, !vm.isGameOver else { return }
         
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         if contactMask == (PhysicsCategory.bird | PhysicsCategory.score) {
-
-            vm?.addScore()
+            vm.addScore()
         } else if contactMask == (PhysicsCategory.bird | PhysicsCategory.pipe) {
             triggerGameOver()
         }
@@ -40,8 +65,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func triggerGameOver() {
         guard let vm = vm, !vm.isGameOver else { return }
+        
+        bird.physicsBody?.contactTestBitMask = 0
+        
         vm.gameOver()
-        self.isPaused = true // Detiene el mundo de SpriteKit
+        self.isPaused = true
+        self.cleanScene()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -54,7 +83,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if vm?.isGameOver == false {
             bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 14))
+            // Usar impulso del VM
+            bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: vm?.jumpImpulse ?? 14))
         }
     }
     
@@ -67,7 +97,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             pipes.position = CGPoint(x: self.size.width + 100, y: randomY)
             self.addChild(pipes)
         }
-        let delay = SKAction.wait(forDuration: 2.0)
+        
+        // Usar spawnRate del VM
+        let delay = SKAction.wait(forDuration: vm?.spawnRate ?? 1.8)
         self.run(SKAction.repeatForever(SKAction.sequence([spawn, delay])))
     }
 }
