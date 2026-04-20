@@ -4,9 +4,10 @@ struct GameOver: View {
     let score: Int
     let onRestart: () -> Void
     
+    
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea() // Fondo sólido para que no se vea el juego
+            Color.black.ignoresSafeArea()
             
             VStack(spacing: 30) {
                 Text("HAS PERDIDO")
